@@ -1,0 +1,117 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 text-sidebar-foreground hover:bg-sidebar-hover transition-all duration-200 rounded-md cursor-pointer;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-sidebar-active;
+  }
+  
+  .sidebar-item-icon {
+    @apply text-sidebar-foreground w-5 h-5;
+  }
+  
+  /* Hover animation for buttons */
+  .btn-hover-effect {
+    @apply relative overflow-hidden transition-all duration-200;
+  }
+  
+  .btn-hover-effect:after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-200;
+  }
+  
+  .btn-hover-effect:hover:after {
+    @apply opacity-10;
+  }
+  
+  /* Table styles */
+  .data-table-container {
+    @apply w-full overflow-x-auto;
+  }
+  
+  .data-table {
+    @apply w-full border-separate border-spacing-0;
+  }
+  
+  .data-table-header {
+    @apply sticky top-0 bg-white z-10 shadow-sm;
+  }
+  
+  .data-table-header th {
+    @apply px-4 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider border-b;
+  }
+  
+  .data-table-row {
+    @apply hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  .data-table-row td {
+    @apply px-4 py-3 border-b;
+  }
+  
+  /* Status styles */
+  .status-badge {
+    @apply px-2 py-1 text-xs font-medium rounded-full;
+  }
+  
+  .status-in-stock {
+    @apply bg-green-100 text-green-700;
+  }
+  
+  .status-low-stock {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+  
+  .status-out-of-stock {
+    @apply bg-red-100 text-red-700;
+  }
+}
